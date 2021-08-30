@@ -11,4 +11,5 @@ screen = pygame.display.set_mode((800,400))#pygame.display module ü ekranla igi
 # oynattığımız pencerenin açık kalması için while loop açıyoruz.
 
 while True:
-    pass
+    # Resimlerde yaptığımz değişikliklerin kaydedilmesi için while loop u sürekli yeniliyoruz. Yoksa sabit kalır.
+    pygame.display.update()
