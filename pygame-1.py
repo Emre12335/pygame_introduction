@@ -11,6 +11,13 @@ screen = pygame.display.set_mode(
 
 pygame.display.set_caption("OYUN1")#oyunun ismi bu şekilde değiştirilebilir.
 
+# pygamede hız birimi fps dir.(frames per second) işlemlerbuna göre yapılır.fps nin artması karakterlerin daha hızlı hareket etmesini sağlar.
+# biz karakterleri hareket ettirirken framelerdeki mesafeyi değiştiririz.
+# Frame başı 10 piksel giden biri saniyede saniyede 100 frame gösterilen yerdeki hızı saniyede 1000 pikseldir.
+# Frame başı 10 piksel giden biri saniyede 5 frame gösterilen yerdeki hızı saniyede 50 pikseldir.
+# fps bu yüzden önemli ve bunu ayarlamak için clock kullanırız.
+clock_object = pygame.time.Clock()
+
 # tkinter daki gibi pygame de mainloop yok çünkü tkinter dakinden farklı olarak resimler arası geçişler olacak oyüzden.
 # oynattığımız pencerenin açık kalması için while loop açıyoruz.
 
@@ -25,3 +32,4 @@ while True:
 
     # Resimlerde yaptığımz değişikliklerin kaydedilmesi için while loop u sürekli yeniliyoruz. Yoksa sabit kalır.
     pygame.display.update()
+    clock_object.tick(60) # Bu tick methodu True loop u dönerken maksimum hızın 60 olmasını sağlıyor.Maksimum 60 frame per second.
