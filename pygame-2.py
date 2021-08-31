@@ -16,14 +16,19 @@ screen = pygame.display.set_mode((800,400))
 pygame.display.set_caption("Runner")
 image_sky_surface = pygame.image.load("graphics/Sky.png")
 image_ground_surface = pygame.image.load("graphics/ground.png")
+text_surface_font = pygame.font.Font("font/Pixeltype.ttf",50) # font un içine yazılan şeyler 1.si font type 2.si font size
+# None yazarsak default olan tipi kullanırız. # Fakat biz
+text_surface = text_surface_font.render('My game',False,(0,0,0)) # font yazıldıktan sonra render ile bunu ana surface a yazıyoruz.
+# bunun parametreleri 1.text 2.Yumuşatma fontu(piksel tipi olduğu için false dedik) 3.Renk siyah istediğimiz için 0,0,0 dedik
+
 clock_object = pygame.time.Clock()
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
             exit()
-    screen.blit(image_sky_surface,(0,0))#blit etme sırası önemli çünkü eğer ground u önce bilit etseydim ve büyüklüğü daha yüksek
-    # olsaydı gözükmezdi blitte gelen yüzeyler üst üste binip gözükmeyebilir.
+    screen.blit(image_sky_surface,(0,0))
     screen.blit(image_ground_surface,(0,300))
+    screen.blit(text_surface,(350,20))
     pygame.display.update()
     clock_object.tick(60)
