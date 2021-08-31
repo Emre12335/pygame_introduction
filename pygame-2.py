@@ -32,3 +32,18 @@ while True:
     screen.blit(text_surface,(350,20))
     pygame.display.update()
     clock_object.tick(60)
+
+# Özet
+
+# Color_surface_steps
+# a = pygame.surface.Surface(width,height:size of surface),a.fill((0,0,0):color),screen.blit(a,(width,height):position)
+
+# image_surface_steps
+# b = pygame.image.load("str":location of file),screen.blit(b,(width,height):position)
+
+# text_surface_steps
+# c = pygame.font.Font("font_type",font_size:integer):font_type,d = c.render("text",True/False,(0,
+# 0,0) or "str":color),screen.blit(d,(width,height):position)
+
+# git ile ypaılmış stepleri kontrol ederek daha detaylı bigi alabilirsin.
+
