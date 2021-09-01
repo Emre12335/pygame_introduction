@@ -13,10 +13,10 @@ image_ground_surface = pygame.image.load("graphics/ground.png").convert()
 text_surface_font = pygame.font.Font("font/Pixeltype.ttf",50)
 text_surface = text_surface_font.render('My game',False,(0,0,0)).convert()
 snail_surface = pygame.image.load("graphics/snail/snail1.png").convert_alpha()
-main_hero_surface =  pygame.image.load("graphics/Player/player_walk_1.png")
-rectangle_yapma_yol_1_kullanilmayan = pygame.Rect(0, 100, 250, 250) # left,top,width,height
-# fakat bu tercih edilmez ve işlevsiz çünkü biz surface ın içine yapmak istiyoruz.
-x_position = 780
+rectangle_snail = snail_surface.get_rect(bottomright = (600,300))
+main_hero_surface =  pygame.image.load("graphics/Player/player_walk_1.png").convert_alpha()
+rectange_main_hero_surface = main_hero_surface.get_rect(midbottom=(80,300)) # get_rect haır keyword argument alır.
+# topleft,midtop,topright/midleft,center,midright/bottomleft,midbottom,bottomright
 clock_object = pygame.time.Clock()
 while True:
     for event in pygame.event.get():
@@ -26,9 +26,14 @@ while True:
     screen.blit(image_sky_surface,(0,0))
     screen.blit(image_ground_surface,(0,300))
     screen.blit(text_surface,(350,20))
-    screen.blit(snail_surface,(x_position,260))
-    x_position -= 4
-    if x_position == -100:
-        x_position = 780
+    screen.blit(snail_surface,rectangle_snail)
+    rectangle_snail.x -= 4 # left ve right x ekseni olan uzunluğu print ediyor.(left,right,top,bottom ile karakterin konumu değiştirilebilir.)
+    # top bottom center ise y ekseni olan uzunluğu print ediyor.(x ve y ile de değiştirilebilir.)
+    # aşağı yukarı hareket ettirmek için top bottom center kullanacağız
+    # sağa sola için ise left right ı kullanacağız.
+    if rectangle_snail.right <= 0:
+        rectangle_snail.left = 800
+    screen.blit(main_hero_surface,rectange_main_hero_surface) # direk bu şekilde yerleştirebiliriz.
+
     pygame.display.update()
     clock_object.tick(60)
