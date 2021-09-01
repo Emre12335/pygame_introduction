@@ -13,6 +13,9 @@ image_ground_surface = pygame.image.load("graphics/ground.png").convert()
 text_surface_font = pygame.font.Font("font/Pixeltype.ttf",50)
 text_surface = text_surface_font.render('My game',False,(0,0,0)).convert()
 snail_surface = pygame.image.load("graphics/snail/snail1.png").convert_alpha()
+main_hero_surface =  pygame.image.load("graphics/Player/player_walk_1.png")
+rectangle_yapma_yol_1_kullanilmayan = pygame.Rect(0, 100, 250, 250) # left,top,width,height
+# fakat bu tercih edilmez ve işlevsiz çünkü biz surface ın içine yapmak istiyoruz.
 x_position = 780
 clock_object = pygame.time.Clock()
 while True:
